@@ -1,0 +1,13 @@
+.error-message {
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
+  display: flex;
+}
+
+select {
+  width: 167px;
+  height: 21px;
+}
+
+

@@ -1,0 +1,49 @@
+<div
+  *ngIf="
+    productsData && productsData.data && productsData.data.length > 0;
+    else loader
+  "
+  class="content products-layout"
+  role="main"
+  style="text-align: center"
+>
+  <span
+    ><button class="add-product edit-button" routerLink="/add-product">
+      Add Product
+    </button></span
+  >
+  <span
+    ><button class="add-product edit-button" routerLink="/main">
+      Main
+    </button></span
+  >
+  <table id="products-table">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>RAM</th>
+      <th>Memory</th>
+      <th>Camera</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let product of productsData.data">
+      <td><img src="{{ product.imageUrl }}" height="50px" /></td>
+      <td>{{ product.name }}</td>
+      <td>{{ mapRam(product.ram) }}</td>
+      <td>{{ mapRam(product.memory) }}</td>
+      <td>{{ mapRam(product.camera) }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button class="edit-button" (click)="editProduct(product)">Edit</button
+        ><button class="delete-button" (click)="deleteProduct(product.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<ng-template #loader>
+  <app-loader></app-loader>
+</ng-template>

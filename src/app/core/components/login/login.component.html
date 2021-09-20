@@ -1,0 +1,46 @@
+<div class="content login-template" role="main">
+  <form
+    #login="ngForm"
+    (ngSubmit)="onSubmitLoginForm(login)"
+    style="font-size: 20px; display: contents"
+  >
+    <table>
+      <tr>
+        <td>
+          <label for="usernmae">Username</label>
+        </td>
+        <td>
+          <input
+            class="input-box"
+            type="text"
+            name="userName"
+            id="username"
+            ngModel
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="password">Password</label>
+        </td>
+        <td>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            ngModel
+            required
+          />
+        </td>
+      </tr>
+    </table>
+    <button
+      [disabled]="!login.valid"
+      class="edit-button login-button"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
